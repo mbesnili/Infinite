@@ -1,0 +1,6 @@
+framework module Pods_InfiniteTests {
+  umbrella header "Pods-InfiniteTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
