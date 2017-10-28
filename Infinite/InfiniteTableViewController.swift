@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class InfiniteTableViewController: UIViewController {
+open class InfiniteTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     enum Constants {
         enum UI {
@@ -96,7 +96,7 @@ open class InfiniteTableViewController: UIViewController {
         request(for: currentPage)
     }
     
-    private func request(for page: Int) {
+    fileprivate func request(for page: Int) {
         tableView(tableView, willFetchFor: page) { [weak self](hasMore) in
             guard let strongSelf = self else {
                 return
@@ -118,10 +118,6 @@ open class InfiniteTableViewController: UIViewController {
         // Subclassses should override this method to make requests
     }
 
-}
-
-extension InfiniteTableViewController: UITableViewDelegate, UITableViewDataSource {
-    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
     }
