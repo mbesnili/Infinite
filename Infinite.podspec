@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.summary      = "A short description of Infinite."
   s.description  = "Infinite Table View Controller"
   s.homepage     = "https://github.com/mbesnili/Infinite"
-  s.license      = "MIT (example)"
+  s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author    = "mbesnili"
   s.social_media_url   = "http://twitter.com/mbesnili"
   s.platform     = :ios, "9.0"

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InfiniteTableViewController: UIViewController {
+open class InfiniteTableViewController: UIViewController {
     
     enum Constants {
         enum UI {
@@ -30,9 +30,9 @@ class InfiniteTableViewController: UIViewController {
         return v
     }()
     
-    private var currentPage: Int = 0
-    private var hasMore: Bool = true
-    private var refreshing: Bool = true
+    fileprivate var currentPage: Int = 0
+    fileprivate var hasMore: Bool = true
+    fileprivate var refreshing: Bool = true
     
     var tableViewStyle = UITableViewStyle.plain
     
@@ -46,7 +46,7 @@ class InfiniteTableViewController: UIViewController {
         commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -70,13 +70,13 @@ class InfiniteTableViewController: UIViewController {
 
     }
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         reset()
         request(for: currentPage)
     }
     
-    override func viewDidLayoutSubviews() {
+    override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
         
@@ -122,15 +122,15 @@ class InfiniteTableViewController: UIViewController {
 
 extension InfiniteTableViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let lastRow = indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1
         let lastSection = indexPath.section == tableView.numberOfSections - 1
         let lastCell = lastRow && lastSection
