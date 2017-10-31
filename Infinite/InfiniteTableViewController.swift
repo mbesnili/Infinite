@@ -30,9 +30,9 @@ open class InfiniteTableViewController: UIViewController, UITableViewDelegate, U
         return v
     }()
     
-    fileprivate var currentPage: Int = 0
-    fileprivate var hasMore: Bool = true
-    fileprivate var refreshing: Bool = true
+    private var currentPage: Int = 0
+    private var hasMore: Bool = true
+    private var refreshing: Bool = true
     
     var tableViewStyle = UITableViewStyle.plain
     
@@ -89,14 +89,14 @@ open class InfiniteTableViewController: UIViewController, UITableViewDelegate, U
         reset()
     }
     
-    private func reset() {
+    public func reset() {
         currentPage = 0
         hasMore = true
         refreshing = true
         request(for: currentPage)
     }
     
-    fileprivate func request(for page: Int) {
+    private func request(for page: Int) {
         tableView(tableView, willFetchFor: page) { [weak self](hasMore) in
             guard let strongSelf = self else {
                 return
