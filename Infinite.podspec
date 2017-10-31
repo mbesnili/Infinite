@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.author    = "mbesnili"
   s.social_media_url   = "http://twitter.com/mbesnili"
   s.platform     = :ios, "9.0"
-  s.source       = { :git => "https://github.com/mbesnili/Infinite.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/mbesnili/Infinite.git", :branch => "master", :tag => "#{s.version}" }
   s.framework    = "UIKit"
   s.source_files = "Infinite/*.{swift}"
 
